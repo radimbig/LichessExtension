@@ -1,1 +1,0 @@
-alert("You activate popup of extensions");
