@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Lichess Helper",
+  "version": "1.0",
+  "description": "Add the bar with chance of wining",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Lichess HTML Modifier",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://lichess.org/*"],
+    "js": ["content.js"]
+  }],
+  "icons": {
+    "512": "icon.png"
+  }
+}
