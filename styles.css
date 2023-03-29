@@ -1,0 +1,16 @@
+body{
+    width: 200px;
+    height: 100px;
+}
+.containerTOP{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.item{
+    width: 65px;
+}
+
+
+
+  
