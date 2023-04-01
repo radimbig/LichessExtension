@@ -1,39 +1,29 @@
 // global variables
-let body;
 let IsTokenProvided;
 let token;
 
 // html elements
-let inputToken = document.createElement("input");
-let SubmitButton = document.createElement("button");
-let winRange = document.createElement("input");
-
-//token input
-inputToken.id = "token";
-inputToken.type = "password";
-// submit button
-SubmitButton.id = "submit";
-SubmitButton.addEventListener("onclick", setToken);
-SubmitButton.textContent = "Submit token";
-// win input
-winRange.type = "range";
-winRange.className = "win-range";
-winRange.value = 50;
-winRange.max = 100;
-winRange.min = 0;
-winRange.disabled = true;
+let body;
+let inputToken;
+let SubmitButton;
+let winRange;
+let digitalRepresentationt;
 
 
+/*
+
+
+*/
 // init
 document.addEventListener("DOMContentLoaded", init);
 
 // functions
 function init() {
   // token checker
+  
   body = document.getElementById("root");
-  document.getElementById("pin").addEventListener("onclick", pin);
-  document.getElementById("popup").addEventListener("onclick", popUp);
-  document.getElementById("otherTab").addEventListener("onclick", otherTab);
+  binder();
+  
   chrome.storage.local.get("IsTokenProvided", function (result) {
     if (result["IsTokenProvided"] == undefined) {
       chrome.storage.local.set({ "IsTokenProvided": false });
@@ -45,27 +35,55 @@ function init() {
         chrome.storage.local.set({ "Lichess-Token": "" });
         return;
       }
+      alert(result["Lichess-Token"]);
       token = result["Lichess-Token"];
     });
   });
 // elements injection
-  body.appendChild(inputToken);
-  body.appendChild(SubmitButton);
-  body.appendChild(winRange);
+//   body.appendChild(inputToken);
+//   body.appendChild(SubmitButton);
+//   body.appendChild(winRange);
 
-  
-  inputToken.value = token;
+
+// win input
+inputToken.value = token;
+
+
 }
+
+
+
+function binder(){
+  digitalRepresentationt = document.getElementById("digitalRepresentationt");
+  inputToken = document.getElementById("token");
+  SubmitButton = document.getElementById("submit");
+  winRange = document.getElementById("winRange");
+  document.getElementById("pin").onclick = pin;
+  document.getElementById("popup").onclick = popUp;
+  document.getElementById("otherTab").onclick = otherTab;
+  winRange.addEventListener('mousedown', (event) => event.preventDefault());
+  winRange.addEventListener('touchstart', (event) => event.preventDefault());
+  winRange.addEventListener('keydown', (event) => event.preventDefault());
+  SubmitButton.onclick = setToken;
+}
+
 function setToken() {
   chrome.storage.local.set({ "Lichess-Token": inputToken.value });
   chrome.storage.local.set({ "IsTokenProvided": true });
-  alert("Token set");
+  alert("token value =" +inputToken.value);
+  0
 }
 
 function updateWinRange(blackRate) {
 
 }
 
-function pin() {}
-function popUp() {}
-function otherTab() {}
+function pin() {
+  alert("pin")
+}
+function popUp() {
+  alert("popUp")
+}
+function otherTab() {
+  alert("other Tab")
+}

@@ -5,11 +5,23 @@
     <script src="popup.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  <body id="root">
-    <div class="containerTOP">
-      <button  id="pin" class="item">Pin</button>
-      <button  id="popup" class="item" >Popup</button>
-      <button  id="otherTab" class="item" >OtherTub</button>
+  <body class="root" id="root">
+    <div class="buttonContainer">
+      <button id="pin">Pin</button>
+      <button id="popup" >PopUp</button>
+      <button id="otherTab">Window</button>
     </div>
+    <div>
+       <input id="token" style="width: 200px; margin-left: 1px;" type="password">
+    </div>
+     <div>
+      <button style="width: 100%; height: 25px;" id="submit">Submit token</button>
+     </div>
+     <div style="align-items: center; text-align: center;">
+      <p id="digitalRepresentationt">50%</p>
+     </div>
+     <div>
+      <input min="0" step="1" max="100" class="winRange" id="winRange" type="range" value="Submit">
+     </div>
   </body>
 </html>

@@ -1,16 +1,24 @@
-body{
-    width: 200px;
-    height: 100px;
-}
-.containerTOP{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.item{
-    width: 65px;
+.root{
+    width: 210px;
+    height: 150px;
+    border: 1px solid black;
+    
 }
 
 
 
-  
+
+.buttonContainer button{
+    width: 70px;
+    
+    
+}
+.buttonContainer{
+    display: table-row;
+}
+
+.winRange{
+    width:100%;
+    margin-left:0px;
+    color: black;
+}
